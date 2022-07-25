@@ -1,7 +1,6 @@
 <template>
-  <div class="App">
-    app
-    <router-view></router-view>
+  <div class="order">
+    order
   </div>
 </template>
 
