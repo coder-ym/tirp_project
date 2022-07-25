@@ -1,6 +1,9 @@
 /* :root表示 <html> 元素 声明全局 CSS 变量 */
 :root {
   --primary-color: #ff9854;
+  /* 全局修改: 任何地方只要用到-van-tabbar-item-icon-size都会被修改掉 */
+  /* vant van-tabbar组件 图标大小 */
+  /* --van-tabbar-item-icon-size: 30px !important; */
 }
 
 body {
