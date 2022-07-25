@@ -1,3 +1,8 @@
+/* :root表示 <html> 元素 声明全局 CSS 变量 */
+:root {
+  --primary-color: #ff9854;
+}
+
 body {
   font-size: 14px;
 }
