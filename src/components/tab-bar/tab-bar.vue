@@ -38,7 +38,8 @@ let currentIndex = ref(0)
   // --van-tabbar-item-icon-size: 30px !important;
 
   // 找到类, 对类中的CSS属性重写
-  // :deep(.class)找到子组件的类, 让子组件的类也可以生效
+  // 当 <style> 标签有 scoped 属性时，它的 CSS 只作用于当前组件中的元素，父组件的样式将不会渗透到子组件。
+  // :deep(.class)深度选择器会找到子组件的类, 让子组件的类也可以生效
   // vant-tabbar中图标存在 class  van-tabbar-item__icon
   // :deep(.van-tabbar-item__icon) {
   //   font-size: 36px;

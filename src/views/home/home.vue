@@ -35,16 +35,18 @@ import homeNavBar from './cpns/home-nav-bar.vue'
 
     .city {
       flex: 1;
+      color: #333;
     }
 
     .position {
-      width: 75px;
       display: flex;
       align-items: center;
+      width: 75px;
 
       .text {
         position: relative;
         top: 2px;
+        color: #666;
         font-size: 12px;
       }
 

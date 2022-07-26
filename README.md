@@ -5,7 +5,7 @@ Vue3+Pinia+Vant 移动端旅行项目
 
 ## Project Setup
 
-```sh
+```
 npm install
 ```
 
