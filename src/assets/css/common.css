@@ -4,8 +4,24 @@
   /* 全局修改: 任何地方只要用到-van-tabbar-item-icon-size都会被修改掉 */
   /* vant van-tabbar组件 图标大小 */
   /* --van-tabbar-item-icon-size: 30px !important; */
+
+  /* 全局修改: 修改Vant 搜索框搜搜索图标颜色 */
+  --van-search-left-icon-color: var(--primary-color) !important;
 }
 
 body {
   font-size: 14px;
+}
+
+/* 组件中隐藏tabbar */
+.top-page {
+   /* 定位元素才能设置z-index */
+  position: relative;
+  z-index: 9;
+  height: 100vh;
+   /* 背景不能为透明 */
+  background-color: #fff;
+
+   /* y轴超出内容滚动: 在当前页面滚动 不然窗口滚动 tabbar会出现 */
+  overflow-y: auto;
 }
