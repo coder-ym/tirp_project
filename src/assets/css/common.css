@@ -1,6 +1,8 @@
 /* :root表示 <html> 元素 声明全局 CSS 变量 */
 :root {
   --primary-color: #ff9854;
+  --line-color: #faf8f9;
+  --theme-linear-gradient: linear-gradient(90deg, #fa8c1d, #fcaf3f);
   /* 全局修改: 任何地方只要用到-van-tabbar-item-icon-size都会被修改掉 */
   /* vant van-tabbar组件 图标大小 */
   /* --van-tabbar-item-icon-size: 30px !important; */
@@ -24,4 +26,9 @@ body {
 
    /* y轴超出内容滚动: 在当前页面滚动 不然窗口滚动 tabbar会出现 */
   overflow-y: auto;
+}
+
+/* 底部分割线 */
+.bottom_gray_line {
+  border-bottom: 1px solid var(--line-color);
 }

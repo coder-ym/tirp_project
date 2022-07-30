@@ -1,7 +1,7 @@
 <template>
   <div class="city-group">
     <!-- 城市列表数据 -->
-    <van-index-bar highlight-color="#ff9854" :indexList="indexList" @select="indexBarClick(index)">
+    <van-index-bar highlight-color="#ff9854" :indexList="indexList">
       <!-- 热门 -->
       <van-index-anchor index="#">热门</van-index-anchor>
       <div class="hot-city-list">
@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import useCityStore from '@/stores/modules/city'
 
@@ -45,9 +45,8 @@ const router = useRouter()
 const cityStore = useCityStore()
 
 function cityClick(city) {
-  router.back()
   cityStore.currentCity = city
-  console.log(cityStore.currentCity)
+  router.back()
 }
 
 </script>

@@ -8,12 +8,12 @@
     <div class="top">
       <!-- 搜索框 -->
       <van-search
-      v-model="searchValue"
-      placeholder="城市/区域/位置"
-      input-align="center"
-      sharp="round"
-      show-action
-      @cancel="cancelClick"
+        v-model="searchValue"
+        placeholder="城市/区域/位置"
+        input-align="center"
+        sharp="round"
+        show-action
+        @cancel="cancelClick"
       />
       <!-- Tab 标签页 -->
       <!-- van-tab指定name属性的情况下，active的值为当前标签的name tabActive默认索引:name -->

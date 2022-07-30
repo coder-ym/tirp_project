@@ -22,12 +22,44 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import tabbarData from '../../assets/data/tab-bar'
 import { getAssetURL } from '../../utils/load_assets.js'
 
+
 // 记录 active 状态 
 let currentIndex = ref(0)
+const route = useRoute()
+
+// 监听路由的改变 切换currentIndex
+watch(route, (newRoute) => {
+   const index = tabbarData.findIndex(item => item.path === newRoute.path)
+   if (index === -1) return
+   currentIndex.value = index
+   
+})
+
+// 浏览器中修改url 底部tabbar 图片不切换
+// window.addEventListener("hashchange", () => {
+//   switch (location.hash) {
+//     case "#/home":
+//       currentIndex.value = 0
+//       break;
+//     case "#/favor":
+//       currentIndex.value = 1
+//       break;
+//     case "#/order":
+//       currentIndex.value = 2
+//       break;
+//     case "#/message":
+//       currentIndex.value = 3
+//       break;
+//     default:
+//       currentIndex.value = 0
+//       break;
+//   }
+// })
 
 </script>
 
