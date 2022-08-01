@@ -6,8 +6,9 @@ const endDate = DateTool.getNewDate()
 
 const useMainStore = defineStore("mainStore", {
   state: () => ({
-    startDate,
-    endDate
+    startDate, 
+    endDate,
+    isShowLoading: false
   }),
   getters: {
 

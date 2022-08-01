@@ -8,6 +8,8 @@
   /* --van-tabbar-item-icon-size: 30px !important; */
 
   /* 全局修改: 修改Vant 搜索框搜搜索图标颜色 */
+  --van-primary-color: var(--primary-color);
+  --van-nav-bar-title-text-color: var(--primary-color) !important;
   --van-search-left-icon-color: var(--primary-color) !important;
 }
 
@@ -31,4 +33,12 @@ body {
 /* 底部分割线 */
 .bottom_gray_line {
   border-bottom: 1px solid var(--line-color);
+}
+
+/* 详情页面小图标 */
+.icon_check {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url(../img/detail/icon_check.png) 0 0 / 100% 100%;
 }

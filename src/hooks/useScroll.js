@@ -1,5 +1,5 @@
 import { throttle } from 'lodash/function'
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, onActivated, onDeactivated, ref } from 'vue'
 
 
 // 通过传入回调函数 在滚动到底后执行
@@ -28,16 +28,24 @@ import { onMounted, onUnmounted, ref } from 'vue'
 //   return { clientHeight, scrollTop, scrollHeight }
 // }
 
-export default function useScroll() {
+export default function useScroll(elRef) {
+  let el = window
   const isReachBottom = ref(false)
   const clientHeight = ref(0)
   const scrollTop = ref(0)
   const scrollHeight = ref(0)
 
   const scrollListenerHandler = throttle(() => {
-    clientHeight.value = document.documentElement.clientHeight
-    scrollTop.value = document.documentElement.scrollTop
-    scrollHeight.value = document.documentElement.scrollHeight
+    if (el === window) {
+      clientHeight.value = document.documentElement.clientHeight
+      scrollTop.value = document.documentElement.scrollTop
+      scrollHeight.value = document.documentElement.scrollHeight
+    } else {
+      clientHeight.value = el.clientHeight
+      scrollTop.value = el.scrollTop
+      scrollHeight.value = el.scrollHeight
+    }
+    
     console.log(scrollTop.value)
     if (clientHeight.value + scrollTop.value >= scrollHeight.value) {
       isReachBottom.value = true
@@ -47,14 +55,25 @@ export default function useScroll() {
 
   //监听窗口的滚动
   onMounted(() => {
-    window.addEventListener("scroll", scrollListenerHandler)
+    if (elRef) {
+      el = elRef.value
+      console.log("+++++++++", el)
+    }
+    el.addEventListener("scroll", scrollListenerHandler)
+  })
+
+  onActivated(() => {
+    el.addEventListener("scroll", scrollListenerHandler)
   })
 
   // 组件被销毁时或失去焦点 移除监听
   // 如果别的页面也进行类似的监听, 会编写重复代码
   onUnmounted(() => {
-    window.removeEventListener("scroll", scrollListenerHandler
-  )
+    el.removeEventListener("scroll", scrollListenerHandler)
+  })
+
+  onDeactivated(() => {
+    el.removeEventListener("scroll", scrollListenerHandler)
   })
 
 

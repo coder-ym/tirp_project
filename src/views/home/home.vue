@@ -41,6 +41,7 @@ watch(isReachBottom, (newValue) => {
   if (newValue) {
     // 滚动到底部 请求数据 并设置isReachBottom为false
     homeStore.fetchHomeHouseListData().then(() => {
+      console.log("滚动到底部数据加载完成")
       isReachBottom.value = false
     })
   }
